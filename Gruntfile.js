@@ -15,6 +15,10 @@ module.exports = function(grunt) {
 	      dev: {
 	      	src: ['src/public/js/ender.min.js', 'src/public/js/mulletrun.js'],
 	        dest: 'public/js/mulletrun.js'
+	      },
+	      client: {
+	      	src: ['src/public/js/ender.min.js', 'src/public/js/flags.js'],
+	        dest: 'public/js/flags.js'
 	      }
 	    },
 		uglify: {
@@ -40,7 +44,7 @@ module.exports = function(grunt) {
 	// Default task(s).
 	//grunt.registerTask('default', ['uglify']);
 	grunt.registerTask('build', ['enderman', 'concat', 'uglify']);
-	grunt.registerTask('default', ['concat:dev']);
+	grunt.registerTask('default', ['concat:dev', 'concat:client']);
 	grunt.registerTask('enderman', ['ender']);
 
 };

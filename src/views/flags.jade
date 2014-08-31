@@ -1,0 +1,25 @@
+extend layout
+block content
+
+	- var n = 0
+	ol
+		while n++ < 15
+			li(class='flag' id='flag'+ n)
+				ul.vals
+					li.name= 'Flag #' + n + ':'
+					li.current
+						span
+					li.low
+						span
+						button(class='setlow' data-flag-id=n) Set low
+					li.high
+						span
+						button(class='sethigh' data-flag-id=n) Set high
+						
+						
+
+
+block scripts
+	script(type='text/javascript', src='socket.io/socket.io.js')
+	script(type='text/javascript', src='js/flags.js')
+	

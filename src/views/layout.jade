@@ -1,9 +1,8 @@
 doctype
 html
 	head
-		title #{title} - My Site
+		title The Mullet Run -- #{title}
 		link(rel='stylesheet', href='/css/style.css')
 	body
-		img#camera
-		script(type='text/javascript', src='socket.io/socket.io.js')
-		script(type='text/javascript', src='js/mulletrun.js')
+		block content
+		block scripts
