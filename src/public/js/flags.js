@@ -24,15 +24,22 @@ var throttledUpdate = _.throttle(updateUI, 150);
 
 
 var setFlagCapturedState = function(flag){
+	if (flag.status != undefined){
+		console.log("flag status:", flag.status);
+	}
+
+	var $el = $('#' + flag.flagindex);
+	
 	if (flag.status == 'c'){
-		$('#' + flag.flagindex).removeClass('uncaptured');
-		$('#' + flag.flagindex).addClass('captured');
+		$el.removeClass('uncaptured');
+		$el.addClass('captured');
 	} else if (flag.status == '') {
-		$('#' + flag.flagindex).addClass('uncaptured');
-		$('#' + flag.flagindex).removeClass('captured');
+		console.log('uncaptured:', flag.flagindex);
+		$el.addClass('uncaptured');
+		$el.removeClass('captured');
 	} else {
-		$('#' + flag.flagindex).removeClass('uncaptured');
-		$('#' + flag.flagindex).removeClass('captured');
+		$el.removeClass('uncaptured');
+		$el.removeClass('captured');
 	}
 };
 
@@ -41,11 +48,16 @@ var onFlagStatus = function(flag){
 };
 
 var onFlagMeta = function(data){
+	console.log("updated flag meta:");
+	console.log(data);
 	_.each(data, function(val, key){
 		$('#' + key + ' .low > span')[0].innerText = (val.low || "(not set)");
 		$('#' + key + ' .high > span')[0].innerText = (val.high || "(not set)");
+		
+		$('.flagid').off('change', changeID);
 		$('#' + key + ' .flagid')[0].value = (val.id || "");
 		setFlagCapturedState(val);
+		$('.flagid').on('change', changeID);
 	});
 };
 

@@ -20,11 +20,10 @@ body
 	background-color background-color
 	color #444
 	padding 10px
-	margin-left 10px
 
 li.flag
 	border 1px solid #ccc
-	width 300px
+	width 280px
 	float left
 	margin 5px
 	padding 7px
@@ -41,6 +40,7 @@ li.flag
 .vals li.name 
 		font-weight bold
 		vertical-align sub 
+		margin-bottom 8px
 	
 .current:before, .high:before, .low:before 
 	vertical-align sub
@@ -56,9 +56,9 @@ li.flag
 	content 'Low:'
 
 select
-	font-size 20px
+	font-size 16px
 	margin-left 9px
-	width 244px
+	width 225px
 	
 button
 	width 80px
@@ -71,7 +71,14 @@ div#score
 	width 130px
 	display inline-block
 	vertical-align bottom
+	color #000 
+	text-shadow 1px 1px 2px #fff 
 
+#score_display
+	font-size 90px
+	color #fff 
+	text-shadow 1px 1px 8px #000
+	
 .captured
 	background-color #b2efba
 
@@ -84,6 +91,8 @@ li.flag.active
 
 #timer
 	font-size 90px
+	color #fff 
+	text-shadow 1px 1px 8px #000
 
 #videoElement
 	position fixed

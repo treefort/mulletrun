@@ -20,7 +20,7 @@ io.on('timer_reset', function (data) {
 
 var setScore = function(score){
 	console.log('setScore', score);
-	$("#score")[0].innerText = "Score: " + score;
+	$("#score_display")[0].innerText = "Score: " + score;
 };
 
 io.on('score_update', setScore);
