@@ -1,12 +1,46 @@
 extend layout
 block content
 
+	#score
+	select(class='commands')
+		option(value='Select Command') Select Command...
+		optgroup(label='Set All...')
+			option(value='setAllLows') Lows
+			option(value='setAllHighs') Highs
+		optgroup(label='Reset All...')
+			option(value='resetAllLows') Lows
+			option(value='resetAllHighs') Highs
+			option(value='resetAllLowsHighs') Lows and Highs
+			option(value='resetEverything') Everything
+				
 	- var n = 0
 	ol
 		while n++ < 15
 			li(class='flag' id='flag'+ n)
 				ul.vals
-					li.name= 'Flag #' + n + ':'
+					li.name= 'Flag:'
+						select(data-flag-id=n class='flagid')
+							option(value='') 
+							optgroup(label='Level 1')
+								option(value='sword') Sword in the Stone
+								option(value='duke') The Duke
+							optgroup(label='Level 2')
+								option(value='blue21') Blue #1
+								option(value='blue22') Blue #2
+								option(value='shyronnie') Shy Ronnie
+							optgroup(label='Ramp')
+								option(value='troll') Ramp Troll
+							optgroup(label='Level 3')
+								option(value='blue31') Blue #1
+								option(value='blue32') Blue #2
+								option(value='red31') Red #1
+								option(value='timmy') Timmy
+							optgroup(label='Level 4')
+								option(value='blue41') Blue #1
+								option(value='blue42') Blue #2
+								option(value='red41') Red #1
+								option(value='batman') Batman
+								option(value='toofer') Toooofer
 					li.current
 						span
 					li.low

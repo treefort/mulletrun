@@ -59,6 +59,14 @@ io.on('timer_reset', function (data) {
 	mulletrun.timer.reset();
 });
 
+
+var setScore = function(score){
+	console.log('setScore', score);
+	$("#score")[0].innerText = "Score: " + score;
+};
+
+io.on('score_update', setScore);
+
 var mulletrun = {};
 
 mulletrun.timer = {};
