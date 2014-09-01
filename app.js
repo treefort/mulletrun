@@ -67,7 +67,8 @@ var flag_values =
 	'blue41': 		5,
 	'blue42': 		5,
 	'red41': 		10,
-	'batman': 		75
+	'batman': 		75,
+	'toofer': 0
 }
 
 app.get('/flags', function (req, res) {
@@ -207,7 +208,7 @@ var checkFlagStatus = function(data){
 	var score = 0;
 	var toofer = false;
 	_.each(_.filter(activeFlags, {'status':'c'}), function(flag){
-		score += flag_values[flag.id] || 0;
+		score += flag_values[flag.id];
 		if (flag.id == 'toofer') toofer = true;
 	});
 		
